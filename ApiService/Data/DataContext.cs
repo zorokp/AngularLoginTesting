@@ -10,6 +10,7 @@ namespace ApiService.Data {
 
         public DbSet<User> Users { get; set; }
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options) {
 
@@ -17,7 +18,7 @@ namespace ApiService.Data {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             optionsBuilder
-                .UseSqlServer(@"Server=localhost; Database=FosterFamily; Trusted_Connection=True");
+                .UseSqlServer(@"Server=localhost; Database=AngularTesting; Trusted_Connection=True");
         }
 
     }

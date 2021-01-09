@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import {UsaState, UsState} from '../_models/State'
+import { UsaState, UsState } from '../_models/State'
+import { SupplierService } from '../_services/supplier.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +11,7 @@ export class HomeComponent {
 
   states: UsState[];
 
-  constructor() {
+  constructor(private supplierService: SupplierService) {
     this.loadStates();
   }
 
@@ -25,7 +27,13 @@ export class HomeComponent {
   }
 
   addSupplier(supplierForm: NgForm): void {
-    console.log(supplierForm);
+    console.log('Calling Supplier Service');
+    this.supplierService.addSupplier(supplierForm).subscribe(
+      success => {
+        console.log('supplier worked!', success);
+      }, error => {
+        console.log('supplier failed :-( ', error);
+      })
   }
 
 }

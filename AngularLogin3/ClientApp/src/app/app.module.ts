@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './_components/login/login.component';
 import { LogoutComponent } from './_components/logout/logout.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

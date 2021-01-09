@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ApiService.Data;
+using ApiService.Models;
 using ApiService.Repositories;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -33,8 +34,8 @@ namespace ApiService {
             services.AddTransient<IUserRepo, UserRepo>();
               
             // 01.09.2020 - Tryig the supplier repo
-            services.AddTransient<ILoadentRepo<Supplier>, SupplierRepo>();
-
+            //services.AddTransient<ILoadentRepo<Supplier>, SupplierRepo>();
+            services.AddTransient<ISupplierRepo, SupplierRepo>();
 
             services.AddAutoMapper(typeof(UserRepo).Assembly);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
