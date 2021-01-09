@@ -1,0 +1,77 @@
+<form #myTestForm="ngForm" (ngSubmit)="myTestFormSubmit(myTestForm)">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h3>Test Form</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Card title Bootstrap 4</h5>
+      <p class="card-text">Fill out this form for a test!!</p>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" [(ngModel)]="firstName" value="" class="form-control" />
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">State</label>
+        </div>
+        <select class="custom-select" id="selectedOneState" name="selectedOneState" [(ngModel)]="myTestFieldOnForm">
+          <option selected>Choose...</option>
+          <option *ngFor="let state of stateList" [ngValue]="state">
+            {{state}}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <select class="custom-select" id="selectedState" name="selectedState" [(ngModel)]="UsaState">
+          <option selected>Choose State ...</option>
+          <option *ngFor="let tmp of tempList" [value]="tmp.id">
+            {{ tmp.name }}
+          </option>
+        </select>
+        <div class="input-group-append">
+          <label class="input-group-text" for="selectedState">USA State</label>
+        </div>
+      </div>
+
+
+
+
+      <!--<div class="form-group">
+    <label for="selectedState">Templ Lable</label>
+    <select id="selectedState" name="selectedState" [(ngModel)]="UsaState">
+      <option *ngFor="let tmp of tempList" [value]="tmp.id">
+        {{ tmp.name }}
+      </option>
+    </select>
+  </div>-->
+
+      <div class="form-group">
+        <label for="Gender">Gender</label>
+        <div class="form-control">
+          <label class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender1" value="male" [(ngModel)]="gender" /> Male
+          </label>
+          <label class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender1" value="female" [(ngModel)]="gender" /> Female
+          </label>
+        </div>
+      </div>
+
+    </div>
+    <div class="card-body">
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>
+
+{{ myTestForm.value | json }}
+
+

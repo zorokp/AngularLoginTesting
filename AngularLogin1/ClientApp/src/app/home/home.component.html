@@ -1,0 +1,10 @@
+<div class="container">
+  Home Component Here
+  <p></p>
+  <button class="btn btn-primary" (click)="loadUsers()">Load Users</button>
+  <div>
+    <div class="col-lg-2 col-md-3 col-sm-6">
+      <p *ngFor="let user of users">{{user.userName}} {{user.age}}</p>
+    </div>
+  </div>
+</div>

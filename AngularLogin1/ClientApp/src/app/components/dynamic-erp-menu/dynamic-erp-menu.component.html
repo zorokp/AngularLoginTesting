@@ -1,0 +1,16 @@
+<div style="border: 1px solid red">DynamicErpMenu Component</div>
+<p><button class="btn btn-primary" (click)="showMenu()">Get Menu</button>    </p>
+<div *ngFor="let erpMenu of erpMenuList">
+  <ul>
+    {{ erpMenu.Name }}
+    <li>{{ erpMenu.Transaction.AddTrans }}</li>
+    <li>{{ erpMenu.Transaction.UpdateTrans }}</li>
+    <li>
+      <ul *ngFor="let tran of erpMenu.Trans">
+        <li>{{ tran }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+

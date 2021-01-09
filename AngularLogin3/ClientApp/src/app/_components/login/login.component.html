@@ -1,0 +1,71 @@
+
+<div *ngIf="isLoggedIn(); then LoggedInData else NotLoggedInData"></div>
+<ng-template #NotLoggedInData>
+  <form #loginForm="ngForm" (ngSubmit)="login()">
+    <div class="card">
+      <div class="carc-header bg-primary text-white">
+        Log In Form
+      </div>
+      <div class="card-body">
+        <div class="card-title">
+          Login
+        </div>
+        <div class="card-text">Use this form to log into the app...</div>
+      </div>
+
+      <div class="card-body">
+        <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" class="form-control" id="username" name="username" required placeholder="Enter User Name" [(ngModel)]="loginModel.username" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" class="form-control" id="password" name="password" required placeholder="Enter Password" [(ngModel)]="loginModel.password" />
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button class="btn-primary btn">Submit</button>
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #LoggedInData>
+  <div class="container">
+    <h3>You're logged in...</h3>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+      <div class="container">
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+                aria-label="Toggle navigation"
+                [attr.aria-expanded]="isExpanded"
+                (click)="toggle()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+             [ngClass]="{ show: isExpanded }">
+          <ul class="navbar-nav flex-grow">
+            <li class="nav-item"
+                [routerLinkActive]="['link-active']"
+                [routerLinkActiveOptions]="{ exact: true }">
+              <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['link-active']">
+              <a class="nav-link text-dark" [routerLink]="['/logout']">Log Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</ng-template>
