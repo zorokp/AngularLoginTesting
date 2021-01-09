@@ -31,6 +31,11 @@ namespace ApiService {
             services.AddDbContext<DataContext>();
             services.AddScoped<IAuthRepo, AuthRepo>();
             services.AddTransient<IUserRepo, UserRepo>();
+              
+            // 01.09.2020 - Tryig the supplier repo
+            services.AddTransient<ILoadentRepo<Supplier>, SupplierRepo>();
+
+
             services.AddAutoMapper(typeof(UserRepo).Assembly);
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {

@@ -33,7 +33,7 @@ namespace ApiService.Repositories {
             if (userExists) {
                 return null;
             } else {
-                await AddNewUser(encryptedUser);
+                await AddNewUserAsync(encryptedUser);
                 return encryptedUser;
             }
 
@@ -72,7 +72,7 @@ namespace ApiService.Repositories {
             return true;
         }
 
-        private async Task AddNewUser(User user) {
+        private async Task AddNewUserAsync(User user) {
             //_conn.Open();
             //var sql = GetType().Assembly.GetEmbeddedSqlQuery(_INSERT_SQL_FILE);
             //await _conn.QueryFirstOrDefaultAsync<User>(sql, new {
@@ -84,7 +84,8 @@ namespace ApiService.Repositories {
             //    @LastName = user.LastName
             //}).ConfigureAwait(false);
             //_conn.Close();
-
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
         }
 
         private async Task<User> CreateEncryptedUser(RegistrationCredentials newUser) {

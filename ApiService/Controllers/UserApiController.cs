@@ -37,6 +37,17 @@ namespace ApiService.Controllers {
             return Ok(usersDto);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddUser() {
+            var user = new User {
+                FirstName="efadd",
+                LastName="efadd"
+            };
+            var usersDto = _mapper.Map<IEnumerable<UserDetailDto>>(user);
+            return Ok(usersDto);
+        }
+
+
         //[HttpPut("{id}")]
         //public async Task<IActionResult> UpdatUser(int id, UserForUpdateDto userForUpdateDto) {
         //    if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
