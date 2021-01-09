@@ -1,6 +1,17 @@
 <body>
-  <app-nav-menu></app-nav-menu>
-  <div class="container">
-    <router-outlet></router-outlet>
-  </div>
+  <div *ngIf="isLoggedIn(); then LoggedInAlready else NotLoggedInYet"></div>
+  <ng-template #NotLoggedInYet>
+    <div class="container">
+      Not Logged In yet.
+      <app-login></app-login>
+    </div>
+  </ng-template>
+
+  <ng-template #LoggedInAlready>
+    <app-nav-menu></app-nav-menu>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </ng-template>
+  
 </body>

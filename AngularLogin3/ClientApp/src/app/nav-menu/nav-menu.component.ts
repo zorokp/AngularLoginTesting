@@ -24,4 +24,5 @@ export class NavMenuComponent {
   loggedIn() {
     return this.authService.loggedIn();
   }
+
 }
