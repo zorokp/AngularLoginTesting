@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ApiService.Data;
 using ApiService.Models;
+using ApiService.Models.Interfaces;
 using ApiService.Repositories;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

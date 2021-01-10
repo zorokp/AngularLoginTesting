@@ -1,4 +1,5 @@
 ﻿using ApiService.Models;
+using ApiService.Models.Interfaces;
 using ApiService.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,19 +21,22 @@ namespace ApiService.Controllers {
             _repo = repo;
         }
 
-        [HttpPost("PostSupplier")]
-        public async Task<IActionResult> Add(Supplier supplier) {
-            var supp = new Supplier() {
-                Address = "123 Lee St.",
-                Name = "First Supplier"
-            };
+        [HttpPost("AddSupplier")]
+        public async Task<IActionResult> Add(Supplier entity) {
+            try {
 
-            var res = await _repo.AddSupplierAsync(supplier);
-            if(res == true) {
+                if (entity.SupplierAddress != null) {
+                    entity.SupplierAddress.AddressType = "Supplier";
+                }
 
+                var res = await _repo.AddSupplierAsync(entity);
+                return Ok("Record Added");
+
+            } catch (Exception ex) {
+
+                throw;
             }
-
-            return Ok("Record Added");
+            
 
         }
 

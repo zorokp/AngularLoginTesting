@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 namespace ApiService.Data {
     public class DataContext : DbContext {
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Photo> Photos { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Photo> Photo { get; set; }
+        public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<Address> Address { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options) {
 

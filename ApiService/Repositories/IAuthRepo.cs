@@ -57,7 +57,7 @@ namespace ApiService.Repositories {
 
 
         private async Task<User> GetUser(string username) {
-            return await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.UserName == username);
+            return await _context.User.Include(p => p.Photos).FirstOrDefaultAsync(u => u.UserName == username);
         }
 
         private bool CredentialsMatch(string password, byte[] passwordHash, byte[] passwordSalt) {
@@ -84,7 +84,7 @@ namespace ApiService.Repositories {
             //    @LastName = user.LastName
             //}).ConfigureAwait(false);
             //_conn.Close();
-            await _context.Users.AddAsync(user);
+            await _context.User.AddAsync(user);
             await _context.SaveChangesAsync();
         }
 

@@ -26,13 +26,13 @@ namespace ApiService.Repositories {
             // works
             // var user = await _context.Users.Include(p=>p.Photos).FirstOrDefaultAsync(u => u.Id == id);
 
-            var user = await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _context.User.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }
 
 
         public async Task<IEnumerable<User>> GetUsers() {
-            var users = await _context.Users.Include(p => p.Photos).ToListAsync();
+            var users = await _context.User.Include(p => p.Photos).ToListAsync();
             return users;
         }
 

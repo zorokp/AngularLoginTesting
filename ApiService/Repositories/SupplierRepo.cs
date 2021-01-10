@@ -1,15 +1,12 @@
 ﻿using ApiService.Data;
 using ApiService.Models;
+using ApiService.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ApiService.Repositories {
-
-    public interface ISupplierRepo {
-        public Task<bool> AddSupplierAsync(Supplier entity); 
-    }
 
     public class SupplierRepo : ISupplierRepo { 
 
@@ -21,7 +18,7 @@ namespace ApiService.Repositories {
 
         public async Task<bool> AddSupplierAsync(Supplier entity) {
             try {
-                await _context.Suppliers.AddAsync(entity);
+                await _context.Supplier.AddAsync(entity);
                 await _context.SaveChangesAsync();
                 return true;
 
