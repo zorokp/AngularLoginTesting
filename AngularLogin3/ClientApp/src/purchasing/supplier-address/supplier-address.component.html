@@ -1,0 +1,33 @@
+<div style="border: 1px solid red">supplierAddress Component</div>
+<div>Data here: {{ inputFromParent }}</div>
+<button (click)="triggerMessage()">send message to parent component!</button>
+<div class="card">
+  <div class="card-header">Main Address</div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="addressStreet1">Street Address</label>
+      <input type="text" [(ngModel)]="supplierStreetAddress1" name="addressStreet1" id="addressStreet1" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="addressStreet2">Apt/Building Number</label>
+      <input type="text" [(ngModel)]="supplierStreetAddress2" name="supplierStreetAddress2" id="supplierStreetAddress2" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="selectedState">State</label>
+      <select class="custom-select" id="selectedState" name="selectedState" [(ngModel)]="UsaState">
+        <option selected>Choose State ...</option>
+        <option *ngFor="let state of states" [value]="state.id">
+          {{ state.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="addressCity">city</label>
+      <input type="text" [(ngModel)]="addressCity" name="addressCity" id="addressCity" value="" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="addressPostalCode">Postal Code</label>
+      <input type="text" [(ngModel)]="addressPostalCode" name="addressPostalCode" id="addressPostalCode" value="" class="form-control" />
+    </div>
+  </div>
+</div>

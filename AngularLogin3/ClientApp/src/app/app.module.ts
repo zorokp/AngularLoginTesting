@@ -11,6 +11,10 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './_components/login/login.component';
 import { LogoutComponent } from './_components/logout/logout.component';
+import { PurchasingSupplierComponent } from '../purchasing/supplier/supplier.component';
+import { PurchasingComponent } from '../purchasing/purchasing.component';
+import { SupplierAddressComponent } from '../purchasing/supplier-address/supplier-address.component';
+import { SupplierService } from '../purchasing/_services/supplier.service';
 
 
 @NgModule({
@@ -21,7 +25,10 @@ import { LogoutComponent } from './_components/logout/logout.component';
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    PurchasingComponent,
+    PurchasingSupplierComponent,
+    SupplierAddressComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,10 +39,11 @@ import { LogoutComponent } from './_components/logout/logout.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'logout', component: LogoutComponent }
+      { path: 'logout', component: LogoutComponent },
+      { path: 'purchasing', component: PurchasingComponent }
     ])
   ],
-  providers: [],
+  providers: [SupplierService],  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
