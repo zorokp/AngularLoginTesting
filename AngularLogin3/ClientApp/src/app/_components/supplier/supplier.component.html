@@ -1,5 +1,21 @@
 
-<!--<form #supplierForm="ngForm" (ngSubmit)="addSupplier(supplierForm)">
+<div class="container">
+  <div>
+    From Address Component: {{ message }}
+  </div>
+  <button (click)="loadStates()">Load States</button>
+  <ul *ngFor="let st of states">
+    <li>
+      {{ st.name }}
+    </li>
+  </ul>
+</div>
+
+<supplier-address [inputFromParent]="'hello there'"
+                  (emittSomething)="showEmitted($event)">
+</supplier-address>
+
+<form #supplierForm="ngForm" (ngSubmit)="addSupplier(supplierForm)">
   <div class="card">
     <div class="card-header bg-primary text-white">
       <h3>Supplier Form</h3>
@@ -15,7 +31,7 @@
         <input type="text" [(ngModel)]="supplierName" id="supplierName" name="supplierName" value="" class="form-control" />
       </div>
 
-      <div class="card">
+      <!--<div class="card">
         <div class="card-header">Main Address</div>
         <div class="card-body">
           <div class="form-group">
@@ -44,7 +60,7 @@
             <input type="text" [(ngModel)]="addressPostalCode" name="addressPostalCode" id="addressPostalCode" value="" class="form-control" />
           </div>
         </div>
-      </div>
+      </div>-->
 
     </div>
 
@@ -54,4 +70,4 @@
   </div>
 </form>
 
--->
+{{ supplierForm.value | json }}

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { PurchasingModule } from '../Purchasing/purchasing.module';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -11,10 +12,10 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './_components/login/login.component';
 import { LogoutComponent } from './_components/logout/logout.component';
-import { PurchasingSupplierComponent } from '../purchasing/supplier/supplier.component';
-import { PurchasingComponent } from '../purchasing/purchasing.component';
-import { SupplierAddressComponent } from '../purchasing/supplier-address/supplier-address.component';
-import { SupplierService } from '../purchasing/_services/supplier.service';
+import { SupplierComponent } from './_components/supplier/supplier.component';
+import { SupplierAddressComponent } from './_components/supplier-address/supplier-address.component';
+import { SupplierService } from './_services/supplier.service';
+
 
 
 @NgModule({
@@ -26,21 +27,21 @@ import { SupplierService } from '../purchasing/_services/supplier.service';
     FetchDataComponent,
     LoginComponent,
     LogoutComponent,
-    PurchasingComponent,
-    PurchasingSupplierComponent,
+    SupplierComponent,
     SupplierAddressComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    PurchasingModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'logout', component: LogoutComponent },
-      { path: 'purchasing', component: PurchasingComponent }
+      { path: 'logout', component: LogoutComponent }
     ])
   ],
   providers: [SupplierService],  

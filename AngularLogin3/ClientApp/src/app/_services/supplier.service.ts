@@ -1,52 +1,52 @@
-//import { HttpClient } from '@angular/common/http';
-//import { Injectable } from '@angular/core';
-//import { environment } from '../../environments/environment';
-//import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
 
 
-////@Injectable({
-////  providedIn: 'root'
-////})
+//@Injectable({
+//  providedIn: 'root'
+//})
 
-//@Injectable()
+@Injectable()
 
-//export class SupplierService {
+export class SupplierService {
 
-//  baseUrl = environment.apiUrl + 'Supplier/';
+  baseUrl = environment.apiUrl + 'Supplier/';
 
-//  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {
 
-//  }
-
-
-//  addSupplier(model: any) {
-//    let formdata = model.value;
-
-//    console.log('model is: ', model);
-//    console.log('trying to add supplier...');
-
-//    const supplier = {
-//      Name: formdata.supplierName,
-//      SupplierAddress: {
-//        AddressLine1: formdata.addressStreet1,
-//        AddressLine2: formdata.supplierStreetAddress2,
-//        City: formdata.addressCity,
-//        StateProvinceID: formdata.selectedState,
-//        PostalCode: formdata.addressPostalCode,
-//        AddressType: "Supplier"
-//      }
-//    };
+  }
 
 
-//    return this.http.post(this.baseUrl + 'AddSupplier', supplier)
-//      .pipe(
-//        map((response: any) => {
-//          const resp = response;
-//          if (resp) {
-//            console.log('Supplier Added');
-//          }
-//        })
-//    );
+  addSupplier(model: any) {
+    let formdata = model.value;
 
-//  }
-//}
+    console.log('model is: ', model);
+    console.log('trying to add supplier...');
+
+    const supplier = {
+      Name: formdata.supplierName,
+      SupplierAddress: {
+        AddressLine1: formdata.addressStreet1,
+        AddressLine2: formdata.supplierStreetAddress2,
+        City: formdata.addressCity,
+        StateProvinceID: formdata.selectedState,
+        PostalCode: formdata.addressPostalCode,
+        AddressType: "Supplier"
+      }
+    };
+
+
+    return this.http.post(this.baseUrl + 'AddSupplier', supplier)
+      .pipe(
+        map((response: any) => {
+          const resp = response;
+          if (resp) {
+            console.log('Supplier Added');
+          }
+        })
+    );
+
+  }
+}

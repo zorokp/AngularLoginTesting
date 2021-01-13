@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-purchasing',
-    templateUrl: './purchasing.component.html',
-    styleUrls: ['./purchasing.component.scss']
+  selector: 'app-purchasing',
+  templateUrl: './purchasing.component.html',
+  styleUrls: ['./purchasing.component.css']
 })
+export class PurchasingComponent implements OnInit {
 
-export class PurchasingComponent {
+  constructor() { }
 
-  title="Accounts Payable Purchasing"
-    constructor() {
+  ngOnInit() {
+  }
 
-    }
 }
