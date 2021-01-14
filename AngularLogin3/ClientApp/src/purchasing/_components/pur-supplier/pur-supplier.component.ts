@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-
-import { SupplierService } from './_services/supplier.service';
+import { SupplierService } from '../../_services/supplier.service';
 
 @Component({
   selector: 'app-pur-supplier',
