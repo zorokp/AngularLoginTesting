@@ -1,1 +1,13 @@
-<p>_component/pur-supplier works!</p>
+
+<div class="container">
+  <div>
+    From Address Component: {{ message }}
+  </div>
+</div>
+
+<app-pur-supplier-add-form [inputFromParent]="'hello there'" [states]="states"
+                          (emittSomething)="showEmitted($event)"
+                          (emittAddSupplier)="addSupplier($event)"
+                          >
+</app-pur-supplier-add-form>
+
