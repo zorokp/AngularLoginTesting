@@ -28,7 +28,7 @@ import { SupplierService } from './_services/supplier.service';
     LoginComponent,
     LogoutComponent,
     SupplierComponent,
-    SupplierAddressComponent
+    SupplierAddressComponent    
 
   ],
   imports: [
@@ -42,6 +42,7 @@ import { SupplierService } from './_services/supplier.service';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
       { path: 'logout', component: LogoutComponent }
+      
     ])
   ],
   providers: [SupplierService],  

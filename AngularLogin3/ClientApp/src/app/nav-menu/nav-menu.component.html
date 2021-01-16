@@ -2,7 +2,9 @@
   <nav
     class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
   >
-    <div class="container">
+
+
+    <div class="container">      
       <a class="navbar-brand" [routerLink]="['/']">AngularLogin3</a>
       <button
         class="navbar-toggler"
@@ -20,11 +22,24 @@
         [ngClass]="{ show: isExpanded }"
       >
         <ul class="navbar-nav flex-grow">
+  
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Purchasing</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" [routerLink]="['/purchasing']">Purhcasing Main</a>
+              <a class="dropdown-item" [routerLink]="['/pur-supplier']">Supplier Maintenance</a>
+              <a class="dropdown-item" href="#">Supplier - Add Supplier</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Supplier Reports</a>
+            </div>
+          </li>
+
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
           </li>
@@ -36,9 +51,6 @@
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/logout']">Log Out</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/pur-supplier']">Purchasing: Supplier Maintenance</a>
           </li>
         </ul>
       </div>

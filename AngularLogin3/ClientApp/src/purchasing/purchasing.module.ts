@@ -18,6 +18,7 @@ import { PurSupplierAddForm } from './_components/pur-supplier/pur-supplier-add-
     FormsModule,
     RouterModule.forRoot([
       { path: 'pur-supplier', component: PurSupplierComponent },
+      { path: 'purchasing', component: PurchasingComponent }
     ])
   ],
   exports: [
