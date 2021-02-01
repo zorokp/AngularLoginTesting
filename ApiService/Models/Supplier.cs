@@ -12,6 +12,6 @@ namespace ApiService.Models {
         public virtual string Name { get; set; }
         public virtual int AddressId { get; set; }
         [Required]
-        public virtual Address SupplierAddress { get; set; }
+        public virtual Address Address { get; set; }
     }
 }

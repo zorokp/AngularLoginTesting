@@ -160,7 +160,7 @@ namespace ApiService.Migrations
 
             modelBuilder.Entity("ApiService.Models.Supplier", b =>
                 {
-                    b.HasOne("ApiService.Models.Address", "SupplierAddress")
+                    b.HasOne("ApiService.Models.Address", "Address")
                         .WithMany()
                         .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)

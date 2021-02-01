@@ -3,26 +3,30 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ApiService.Migrations
 {
-    public partial class InitialCreation : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Suppliers",
+                name: "Address",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true)
+                    AddressLine1 = table.Column<string>(nullable: false),
+                    AddressLine2 = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: false),
+                    StateProvinceID = table.Column<string>(nullable: false),
+                    PostalCode = table.Column<string>(nullable: false),
+                    AddressType = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Suppliers", x => x.Id);
+                    table.PrimaryKey("PK_Address", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -41,11 +45,31 @@ namespace ApiService.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Photos",
+                name: "Supplier",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false),
+                    AddressId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Supplier", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Supplier_Address_AddressId",
+                        column: x => x.AddressId,
+                        principalTable: "Address",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Photo",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -58,31 +82,39 @@ namespace ApiService.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Photos", x => x.Id);
+                    table.PrimaryKey("PK_Photo", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Photos_Users_UserId",
+                        name: "FK_Photo_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Photos_UserId",
-                table: "Photos",
+                name: "IX_Photo_UserId",
+                table: "Photo",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Supplier_AddressId",
+                table: "Supplier",
+                column: "AddressId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Photos");
+                name: "Photo");
 
             migrationBuilder.DropTable(
-                name: "Suppliers");
+                name: "Supplier");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
+
+            migrationBuilder.DropTable(
+                name: "Address");
         }
     }
 }

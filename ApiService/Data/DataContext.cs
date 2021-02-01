@@ -19,7 +19,8 @@ namespace ApiService.Data {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             optionsBuilder
-                .UseSqlServer(@"Server=localhost; Database=AngularTesting; Trusted_Connection=True");
+                .UseSqlServer(@"Server=162.246.16.98; Database=serp; User Id=erpdbuser; Password=fv84!Qc6;");
+                //.UseSqlServer(@"Server=localhost; Database=AngularTesting; Trusted_Connection=True");
         }
 
     }

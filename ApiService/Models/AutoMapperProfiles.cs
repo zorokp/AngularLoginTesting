@@ -22,6 +22,8 @@ namespace ApiService.Models {
                     opt.MapFrom(src => src.DateOfBirth.CalculateAge()));
             CreateMap<Photo, PhotoDetailsDto>();
             CreateMap<UserForUpdateDto, User>();
+            CreateMap<Supplier, SupplierDto>();
+            CreateMap<SupplierDto, Supplier>();
         }
     }
 
